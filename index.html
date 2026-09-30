@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adarsh Gadagin | B.Tech CSE Student at REVA University</title>
+    <meta
+      name="description"
+      content="Portfolio of Adarsh Gadagin, a 2nd year B.Tech Computer Science & Engineering student at REVA University."
+    />
+    <style>
+      :root {
+        --bg: #16181d;
+        --surface: #1e2128;
+        --border: #2d323c;
+        --text: #e6e8ee;
+        --muted: #a2a9b8;
+        --blue: #5b8cff;
+        --purple: #a07bff;
+        --cyan: #38d6e8;
+        --grad: linear-gradient(90deg, var(--blue), var(--purple), var(--cyan));
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 72px;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--cyan);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      .wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Navigation */
+      header.nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(22, 24, 29, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+      .brand {
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.01em;
+      }
+      .brand:hover {
+        text-decoration: none;
+      }
+      .nav ul {
+        list-style: none;
+        display: flex;
+        gap: 22px;
+        margin: 0;
+        padding: 0;
+      }
+      .nav ul a {
+        color: var(--muted);
+        font-size: 0.95rem;
+        padding: 4px 0;
+        border-bottom: 2px solid transparent;
+      }
+      .nav ul a:hover {
+        color: var(--text);
+        text-decoration: none;
+        border-bottom-color: var(--purple);
+      }
+
+      /* Hero */
+      .hero {
+        padding: 96px 0 48px;
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 7vw, 3.8rem);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin: 0 0 20px;
+      }
+      .hero .rule {
+        height: 4px;
+        width: 120px;
+        background: var(--grad);
+        border-radius: 2px;
+        margin-bottom: 24px;
+      }
+      .hero p {
+        font-size: 1.15rem;
+        color: var(--muted);
+        max-width: 60ch;
+        margin: 0;
+      }
+
+      /* Sections */
+      section {
+        padding: 56px 0;
+        border-top: 1px solid var(--border);
+      }
+      section h2 {
+        font-size: 1.6rem;
+        letter-spacing: -0.02em;
+        margin: 0 0 24px;
+      }
+      section p {
+        max-width: 68ch;
+        margin: 0 0 16px;
+      }
+
+      /* Projects */
+      .projects {
+        display: grid;
+        gap: 16px;
+      }
+      .project {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--blue);
+        border-radius: 8px;
+        padding: 20px 22px;
+      }
+      .project:nth-child(2) {
+        border-left-color: var(--purple);
+      }
+      .project:nth-child(3) {
+        border-left-color: var(--cyan);
+      }
+      .project h3 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+      }
+      .project p {
+        color: var(--muted);
+        margin: 0 0 12px;
+      }
+      .project a {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      /* Skills */
+      .skills {
+        display: grid;
+        gap: 22px;
+      }
+      .skill-group h3 {
+        margin: 0 0 10px;
+        font-size: 1rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .chips li {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 0.92rem;
+      }
+      .skill-group:nth-child(1) .chips li {
+        border-color: rgba(91, 140, 255, 0.55);
+      }
+      .skill-group:nth-child(2) .chips li {
+        border-color: rgba(160, 123, 255, 0.55);
+      }
+      .skill-group:nth-child(3) .chips li {
+        border-color: rgba(56, 214, 232, 0.55);
+      }
+
+      /* Contact */
+      .contact-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+      .contact-list li {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+      }
+      .contact-list .label {
+        min-width: 84px;
+        color: var(--muted);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 28px 0 40px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 560px) {
+        .wrap {
+          padding: 0 18px;
+        }
+        .nav .wrap {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .nav ul {
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .hero {
+          padding: 56px 0 32px;
+        }
+        section {
+          padding: 40px 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="#top">Adarsh Gadagin</a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="wrap">
+        <div class="hero">
+          <h1>Hi, I'm Adarsh Gadagin.</h1>
+          <div class="rule" aria-hidden="true"></div>
+          <p>
+            A 2nd year B.Tech Computer Science &amp; Engineering student at REVA
+            University, building practical skills one small project at a time.
+          </p>
+        </div>
+
+        <section id="about">
+          <h2>About</h2>
+          <p>
+            I am Adarsh Gadagin, a 2nd year B.Tech Computer Science &amp;
+            Engineering student at REVA University. I enjoy learning
+            programming, exploring developer tools, and building small software
+            projects to strengthen my practical skills.
+          </p>
+          <p>
+            I am currently developing my skills in C, C++, Java, and Python
+            while improving my understanding of Git and GitHub.
+          </p>
+          <p>
+            My goal is to grow into an AI Engineer and Systems Architect by
+            learning how to turn real requirements into useful, scalable
+            technical solutions.
+          </p>
+        </section>
+
+        <section id="projects">
+          <h2>Projects</h2>
+          <div class="projects">
+            <article class="project">
+              <h3>Hello World repository</h3>
+              <p>
+                A C Hello World program and a personalized greeting function.
+              </p>
+              <a
+                href="https://github.com/adarshGadagin/hello-world-c"
+                target="_blank"
+                rel="noopener"
+                >View on GitHub</a
+              >
+            </article>
+            <article class="project">
+              <h3>
+                Pair-programming collaboration log using GitLens and Live Share
+              </h3>
+              <p>
+                A pair-programming session using VS Code Live Share, with
+                GitLens used to review the collaboration and Git history.
+              </p>
+              <a
+                href="https://github.com/adarshGadagin/hello-world-c"
+                target="_blank"
+                rel="noopener"
+                >View on GitHub</a
+              >
+            </article>
+            <article class="project">
+              <h3>LeetCode solutions repository</h3>
+              <p>
+                8 LeetCode solutions organized into topic folders with code,
+                tests, documentation, Accepted screenshots, and progress
+                tracking.
+              </p>
+              <a
+                href="https://github.com/adarshGadagin/leetcode-solutions"
+                target="_blank"
+                rel="noopener"
+                >View on GitHub</a
+              >
+            </article>
+          </div>
+        </section>
+
+        <section id="skills">
+          <h2>Skills</h2>
+          <div class="skills">
+            <div class="skill-group">
+              <h3>Languages</h3>
+              <ul class="chips">
+                <li>C</li>
+                <li>C++</li>
+                <li>Java</li>
+                <li>Python</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h3>Tools</h3>
+              <ul class="chips">
+                <li>VS Code</li>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>GitLens</li>
+                <li>Live Share</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h3>Ways of working</h3>
+              <ul class="chips">
+                <li>Problem solving</li>
+                <li>Collaborative development</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <ul class="contact-list">
+            <li>
+              <a
+                href="https://github.com/adarshGadagin"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+            </li>
+
+            <li>
+              <a href="mailto:adarshgadagin@gmail.com">Email</a>
+            </li>
+
+            <li>
+              <a
+                href="https://linkedin.com/in/adarsh-gadagin"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">Adarsh Gadagin, B.Tech CSE, REVA University</div>
+    </footer>
+  </body>
+</html>
